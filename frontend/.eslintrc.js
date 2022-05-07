@@ -2,29 +2,25 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    es2021: true,
+    es2021: true
   },
-  parserOptions: {
-    project: 'tsconfig.json',
-    sourceType: 'module',
-  },
-  extends: [
-    'plugin:vue/essential',
-    'google',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-  ],
+  extends: ['plugin:vue/essential', 'standard'],
   parserOptions: {
     ecmaVersion: 'latest',
-    parser: '@typescript-eslint/parser',
-    sourceType: 'module',
+    sourceType: 'module'
   },
-  plugins: ['vue', '@typescript-eslint', '@typescript-eslint/eslint-plugin'],
-  ignorePatterns: ['.eslintrc.js'],
+  plugins: ['vue'],
   rules: {
-    '@typescript-eslint/interface-name-prefix': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
+    'vue/multi-word-component-names': 'off'
   },
-};
+  overrides: [
+    {
+      files: ['src/views/*.vue'],
+      rules: {
+        'vue/multi-word-component-names': 'off',
+        camelcase: 'off',
+        'space-before-function-paren': 0
+      }
+    }
+  ]
+}

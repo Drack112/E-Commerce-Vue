@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "markdown",
     "django_filters",
     # own apps
+    "product",
 ]
 
 MIDDLEWARE = [
