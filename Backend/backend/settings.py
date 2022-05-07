@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "django_filters",
     # own apps
     "product",
+    "order",
 ]
 
 MIDDLEWARE = [
@@ -154,5 +155,3 @@ cloudinary.config(
     api_secret=os.getenv("CLOUDINARY_API_SECRET"),
     secure=False,
 )
-
-# DJOSER
