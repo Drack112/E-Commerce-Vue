@@ -13,31 +13,19 @@
       </div>
     </div>
 
-    <div
+    <ProductBox
       class="column is-3"
       v-for="product in latestProducts"
       v-bind:key="product.id"
-    >
-      <div class="box">
-        <figure class="image mb-4">
-          <img :src="product.get_thumbnail" />
-        </figure>
-
-        <h3 class="is-size-4">{{ product.name }}</h3>
-        <p class="is-size-6 has-text-gray">$ {{ product.price }}</p>
-
-        <router-link
-          v-bind:to="product.get_absolute_url"
-          class="button is-dark mt-4"
-          >View details</router-link
-        >
-      </div>
-    </div>
+      v-bind:product="product"
+    />
   </div>
 </template>
 
 <script lang="js">
 import axios from 'axios'
+
+import ProductBox from '@/components/ProductBox'
 
 export default {
   name: 'Home',
@@ -46,29 +34,27 @@ export default {
       latestProducts: []
     }
   },
-  components: {},
+  components: {
+    ProductBox
+  },
   mounted() {
     this.getLatestProducts()
+
+    document.title = 'Home / DJackets'
   },
   methods: {
-    getLatestProducts() {
-      axios
+    async getLatestProducts() {
+      this.$store.commit('setIsLoading', true)
+      await axios
         .get('/api/v1/latest-products/')
-        .then((response) => {
+        .then(response => {
           this.latestProducts = response.data
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error)
         })
+      this.$store.commit('setIsLoading', false)
     }
   }
 }
 </script>
-
-<style scoped>
-.image {
-  margin-top: -1.25rem;
-  margin-left: -1.25rem;
-  margin-right: -1.25rem;
-}
-</style>
