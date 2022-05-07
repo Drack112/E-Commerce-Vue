@@ -16,12 +16,12 @@ Teste de realizar a interface de aplicação do E-Commerce com Vue utilizando o 
   <strong>Tela de Home Screen</strong>
   <img src="./.github/media/app-home.png" />
   <div align="center">
-    <strong>Tela da aba de cursos</strong>
-    <img src="./.github/media/courses.png" />
+    <strong>Tela da roupas</strong>
+    <img src="./.github/media/jackets.png" />
   </div>
   <div align="center">
-    <strong>Tela de Registro</strong>
-    <img src="./.github/media/singup.png" />
+    <strong>Tela de Compra</strong>
+    <img src="./.github/media/buy.png" />
   </div>
   <a id="tecnologias"></a>
 </div>
